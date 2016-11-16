@@ -39,6 +39,10 @@ obj-$(CONFIG_ARCH_MSM8226) += board-8226.o board-8226-gpiomux.o
 obj-$(CONFIG_ARCH_MSM8226) += clock-8226.o clock-mdss-8974.o
 obj-$(CONFIG_ARCH_MSM8610) += board-8610.o board-8610-gpiomux.o
 obj-$(CONFIG_ARCH_MSM8610) += clock-8610.o
+ifndef CONFIG_MACH_SONY_SHUANG
+obj-$(CONFIG_ARCH_MSM8610) += board-8610.o board-8610-gpiomux.o
+endif
+
 obj-$(CONFIG_ARCH_MSM8610) += clock-dsi-8610.o
 obj-$(CONFIG_ARCH_MDM9630) += clock-9630.o
 obj-$(CONFIG_ARCH_MDM9640) += board-9640.o
@@ -64,6 +68,22 @@ obj-$(CONFIG_MSM_HSIC_SYSMON) += hsic_sysmon.o
 obj-$(CONFIG_MSM_HSIC_SYSMON_TEST) += hsic_sysmon_test.o
 
 obj-$(CONFIG_MSM_RPC_USB) += rpc_hsusb.o rpc_fsusb.o
+<<<<<<< HEAD
+=======
+obj-$(CONFIG_MSM_RPC_PMAPP) += rpc_pmapp.o
+
+obj-$(CONFIG_MSM_ENABLE_WDOG_DEBUG_CONTROL) += wdog_debug.o
+
+obj-$(CONFIG_MSM_USE_USER_ACCESSIBLE_TIMERS) += timer_page.o
+
+ifdef CONFIG_MSM_CPR
+obj-$(CONFIG_DEBUG_FS) += msm_cpr-debug.o
+endif
+
+obj-$(CONFIG_MACH_SONY_SHUANG) += shuang/
+obj-$(CONFIG_MSM_FIQ) += msm7k_fiq.o
+obj-$(CONFIG_MSM_FIQ) += msm7k_fiq_handler.o
+>>>>>>> 06cffa459d0... arm/dt: msm8x10: shuang: Clean base code of Sony Xperia E1 device tree
 
 obj-$(CONFIG_MEMORY_HOLE_CARVEOUT) +=  msm_mem_hole.o
 

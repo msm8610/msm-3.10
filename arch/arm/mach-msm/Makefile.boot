@@ -24,4 +24,18 @@
 
 # MSM8610
    zreladdr-$(CONFIG_ARCH_MSM8610)	:= 0x00008000
-
+# Do not include MSM8610 in Shuang Board
+ifeq ($(CONFIG_MACH_SONY_SHUANG),y)
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-shuang-v2-mtp.dtb
+else
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-v1-cdp.dtb
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-v2-cdp.dtb
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-v1-mtp.dtb
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-v2-mtp.dtb
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-rumi.dtb
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-sim.dtb
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-v1-qrd-skuaa.dtb
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-v1-qrd-skuab.dtb
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-v2-qrd-skuaa.dtb
+        dtb-$(CONFIG_ARCH_MSM8610)	+= msm8610-v2-qrd-skuab.dtb
+endif
